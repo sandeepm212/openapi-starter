@@ -6,10 +6,13 @@ info:
     name: MIT
 servers:
   - url: 'localhost:3000'
+    description: Production server (user live data)
+  - url: 'dev:8080'
+    description: Dev server
 paths:
   /user:
     get:
-      summary: 'Sample endpoint: Returns details about a particular user'
+      summary: 'Returns details about a particular user'
       operationId: listUser
       tags:
         - user
@@ -66,8 +69,8 @@ components:
         message:
           type: string
   securitySchemes:
-    BasicAuth:
+    bearerAuth:
       type: http
-      scheme: basic
+      scheme: bearer
 security:
-  - BasicAuth: []
+  - bearerAuth: []
